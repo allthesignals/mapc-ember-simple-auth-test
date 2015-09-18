@@ -19,6 +19,19 @@ module.exports = function(environment) {
     }
   };
 
+  ENV['simple-auth'] = {
+    crossOriginWhitelist: ['*'],
+    // authorizer: 'authorizer:custom',
+    store: 'simple-auth-session-store:local-storage'
+  }
+
+  ENV['simple-auth-devise'] = {
+    tokenAttributeName: 'token',
+    identificationAttributeName: 'email',
+    // serverTokenEndpoint: 'http://knowplace.dev.mapc.org/users/sign_in',
+    authorizer: 'simple-auth-authorizer:devise'
+  };
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
